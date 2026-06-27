@@ -145,6 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas, { passive: true });
 
+  // Cache theme colours once for the canvas (works for both dark & light themes)
+  const cssVars   = getComputedStyle(document.documentElement);
+  const clrPrimary = cssVars.getPropertyValue('--clr-primary').trim() || '#3dbfe0';
+  const clrAccent  = cssVars.getPropertyValue('--clr-accent').trim()  || '#8dc63f';
+
   class Particle {
     constructor() {
       this.reset();
@@ -156,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.speedX = (Math.random() - 0.5) * 0.4;
       this.speedY = (Math.random() - 0.5) * 0.4;
       this.opacity = Math.random() * 0.5 + 0.1;
-      this.color = Math.random() > 0.6 ? '#00b4d8' : '#ffffff';
+      this.color = Math.random() > 0.6 ? clrPrimary : clrAccent;
     }
     update() {
       this.x += this.speedX;
@@ -195,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dist < MAX_DIST) {
           ctx.save();
           ctx.globalAlpha = (1 - dist / MAX_DIST) * 0.12;
-          ctx.strokeStyle = '#00b4d8';
+          ctx.strokeStyle = clrPrimary;
           ctx.lineWidth   = 0.5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
