@@ -2311,3 +2311,12 @@ body {
 ::-webkit-scrollbar-track {
   background: #eaf3f8;
 }
+
+/* ── Hero title – inline accent span ───────────────────────── */
+.hero__title-line .hero__title-line--accent {
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
