@@ -34,7 +34,7 @@
   /* Spacing */
   --section-py:        120px;
   --container-max:     1280px;
-  --container-px:      clamp(1rem, 5vw, 3rem);
+  --container-px:      2rem;
 
   /* Radius */
   --radius-sm:   6px;
@@ -71,6 +71,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -222,6 +223,7 @@ input, textarea, select { font-family: inherit; }
 /* ── Container ──────────────────────────────────────────── */
 .container {
   max-width: var(--container-max);
+  width: 100%;
   margin: 0 auto;
   padding: 0 var(--container-px);
 }
@@ -470,8 +472,10 @@ input, textarea, select { font-family: inherit; }
 .hero {
   position: relative;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: var(--clr-bg);
 }
@@ -523,6 +527,7 @@ input, textarea, select { font-family: inherit; }
   z-index: 2;
   padding-top: 120px;
   padding-bottom: 80px;
+  width: 100%;
 }
 
 .hero__badge {
